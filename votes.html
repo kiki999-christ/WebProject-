@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .vote-options {
+            margin: 20px 0;
+        }
+        .vote-options button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            margin: 5px;
+        }
+        .vote-options button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vote Counter</h1>
+        <p>Click to vote for your favorite candidate:</p>
+        
+        <div class="vote-options">
+            <button onclick="vote('candidateA')">Candidate A</button>
+            <button onclick="vote('candidateB')">Candidate B</button>
+            <button onclick="vote('candidateC')">Candidate C</button>
+        </div>
+
+        <div class="results">
+            <p id="resultA">Candidate A: 0 votes</p>
+            <p id="resultB">Candidate B: 0 votes</p>
+            <p id="resultC">Candidate C: 0 votes</p>
+            <p><strong>Total Votes: <span id="totalVotes">0</span></strong></p>
+        </div>
+    </div>
+
+    <script>
+        let votes = {
+            candidateA: 0,
+            candidateB: 0,
+            candidateC: 0,
+            totalVotes: 0
+        };
+
+        // Function to add a vote for a candidate
+        function vote(candidate) {
+            // Increment the vote count for the selected candidate
+            votes[candidate]++;
+            // Increment the total votes count
+            votes.totalVotes++;
+            
+            // Update the displayed results
+            updateResults();
+        }
+
+        // Function to update the displayed results
+        function updateResults() {
+            document.getElementById('resultA').textContent = `Candidate A: ${votes.candidateA} votes`;
+            document.getElementById('resultB').textContent = `Candidate B: ${votes.candidateB} votes`;
+            document.getElementById('resultC').textContent = `Candidate C: ${votes.candidateC} votes`;
+            document.getElementById('totalVotes').textContent = votes.totalVotes;
+        }
+    </script>
+</body>
+</html>

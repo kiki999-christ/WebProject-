@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter (USD to RWD)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Currency Converter</h2>
+        <p>Convert USD to RWD</p>
+        <form id="converterForm">
+            <label for="usdAmount">Enter Amount in USD:</label>
+            <input type="number" id="usdAmount" placeholder="Enter USD amount" required>
+            <button type="submit">Convert</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Conversion rate (1 USD = 1200 RWF as an example; adjust as needed)
+        const conversionRate = 1200;
+
+        // Select elements
+        const form = document.getElementById("converterForm");
+        const usdAmountInput = document.getElementById("usdAmount");
+        const resultDiv = document.getElementById("result");
+
+        // Handle form submission
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the page from refreshing
+
+            const usdAmount = parseFloat(usdAmountInput.value); // Get the input value as a number
+            if (isNaN(usdAmount) || usdAmount <= 0) {
+                resultDiv.textContent = "Please enter a valid amount in USD.";
+            } else {
+                const rwdAmount = usdAmount * conversionRate; // Convert to RWD
+                resultDiv.textContent = `${usdAmount} USD = ${rwdAmount.toLocaleString()} RWD`;
+            }
+        });
+    </script>
+</body>
+</html>

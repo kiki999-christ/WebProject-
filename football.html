@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .time-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        button.start {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button.pause {
+            background-color: #f0ad4e;
+            color: white;
+        }
+        button.reset {
+            background-color: #d9534f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Football Match Timer</h1>
+        <div class="time-display" id="timeDisplay">00:00</div>
+        <button class="start" onclick="startTimer()">Start</button>
+        <button class="pause" onclick="pauseTimer()">Pause</button>
+        <button class="reset" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <script>
+        let minutes = 0; // Minutes played
+        let seconds = 0; // Seconds (for precision)
+        let timerInterval; // Variable to store the interval
+
+        // Function to start the timer
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    if (seconds === 60) {
+                        minutes++;
+                        seconds = 0;
+                    }
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        // Function to pause the timer
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        // Function to reset the timer
+        function resetTimer() {
+            pauseTimer();
+            minutes = 0;
+            seconds = 0;
+            updateDisplay();
+        }
+
+        // Function to update the displayed time
+        function updateDisplay() {
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const formattedSeconds = seconds.toString().padStart(2, '0');
+            document.getElementById('timeDisplay').textContent = `${formattedMinutes}:${formattedSeconds}`;
+        }
+    </script>
+</body>
+</html>

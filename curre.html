@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERTER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="currency">
+        <h1>Currency Converter</h1>
+        <input type="number" placeholder="enter amount" id="amount"><br><br>
+        <div class="convert">
+        <select id="from">
+            <option value="rwf">rwandan francs</option>
+            <option value="usd">US dollars</option>
+            <option value="gbp">Great britain pounds</option>
+        </select><br><br>
+
+        <select id="to">
+            <option value="rwf">rwandan francs</option>
+            <option value="usd">US dolars</option>
+            <option value="gbp">Great britain pounds</option>
+        </select><br><br>
+        
+        </div>
+        <button id="submit">Convert</button>
+        <h2 id="output">output</h2>
+    </div>
+
+    <script>
+            const from = document.getElementById("from");
+            const to = document.getElementById("to");
+            const output = document.getElementById("output");
+
+        document.getElementById("submit").onclick = function (){
+            const amount = document.getElementById("amount").value;
+            if(amount==""){
+                alert("Please enter amount to convert");
+            }else if(from.value == "rwf"&& to.value=="rwf"){
+                 alert("you can't convert into the same currency");
+            }else if(from.value == "rwf"&& to.value=="usd"){
+                var result = amount /1300;
+                output.textContent = result;
+            }else if(from.value == "rwf"&& to.value=="gbp"){
+                var result = amount /1500;
+                output.textContent = result;
+            }else if(from.value == "usd"&& to.value=="usd"){
+                 alert("you can't convert into the same currency");
+            }else if(from.value == "usd"&& to.value=="rwf"){
+                var result = amount*1300;
+                output.textContent = result;
+            }else if(from.value == "usd"&& to.value=="gbp"){
+                var result = amount /1.2;
+                output.textContent = result;
+            }else if(from.value == "gbp"&& to.value=="gbp"){
+                 alert("you can't convert into the same currency");
+            }else if(from.value == "gbp"&& to.value=="rwf"){
+                var result = amount*1500;
+                output.textContent = result;
+            }else if(from.value == "gbp"&& to.value=="usd"){
+                var result = amount*1.2;
+                output.textContent = result;
+            }
+        }
+    </script>
+</body>
+</html>

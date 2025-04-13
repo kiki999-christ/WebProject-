@@ -1,0 +1,167 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    <script>
+       /* var a=3;
+        var b =7;
+        var c="iam esther";
+        console.log(c)
+        a=a+9;
+        b=b+7;
+        c=c+"string";
+        console.log(b)
+        */
+      //decimal numbers
+       //var a = 20.5*19.5;
+       //console.log(a)
+    //    var remainder;
+    //    remainder=10%2
+    //    console.log(remainder)
+    //    var a=3;
+    //     var b =25;
+    //     var c=9;
+         //operators +=,-=,*= it's shortcut for adding,substracting,multiplication a numbers
+    //     a*=9;
+    //     b/=5;
+    //     c-=5;
+    //     console.log(b)
+    //declare string variables
+    // var username="allienne";
+    // var nickname="rutwe";
+    // console.log("username" +" "+ "nickname")
+//escaping literal qoutes in string back strash(\)and ' it will help javascript to undestand well
+//('):var str='i am "double qoutes" string "double qoutes"';
+//(\)var str1="you are \"double qoutes\" string \"double qoutes\"";
+//console.log(str)
+//var style="firstname\f\t\\secondline\nThirdline"
+//console.log(style)
+// show length of variables
+// var firstnamelength="0"
+// var lastname="esther"
+// firstnamelength=lastname.length
+// console.log(firstnamelength)
+//brack notation([]) to find second character in javascript we count from 0 up to number you want
+var a=""
+var b="esther"
+a=b[b.length-3];
+console.log(a)
+var a=""
+var b="fune"
+a=b[1];
+console.log(a)
+//string immutability means to change and altered what you change
+// var sty="jisubizo"
+// sty="gisubizo"
+// console.log(sty)
+//to show the information we need
+// function Question(name,age,car){
+//     var result="";
+//     result += "myname is" + name + "my age is"+ age +" i have car called" +car;
+//     return result;
+// }
+//     console.log(Question("esther","17","toyota"))
+//     //to store multiple values with arrays we use[]
+//     var mystr=["fire",3]
+//     console.log(mystr)
+//     //nested array is when array it's inside another array
+//     var myArray=[["cup",5,"red"],["plates",6,8]]
+//     console.log(myArray)
+//     //push is to add one or more element to the end of an array.
+    var array1=["estehr","gisubizo","queen"];
+     array1.push(["reine","ganza","teta"]);
+     console.log(array1)
+    //pop is used to remove last arrays in element
+    var myArray=[23,13,18];
+    myArryaylength=myArray.pop();
+    console.log(myArray)
+//functions
+function newyear(){
+    console .log("gisubizo,esther")
+}
+newyear();
+//______________________________________________________________
+function ourfire(a,c){
+    console.log(a*c)
+}
+ourfire(10,6);
+//add numbers in functions
+//____________________________________________________
+function addnum(sum){
+   return sum+3;
+}
+console.log(addnum(2))
+//_______________________________________
+//function2
+var change=0;
+function changed(num){
+    return (num+3)/5;
+    
+}
+change =changed(10);
+console.log(change)
+//_______________________________________________
+//if conditions
+function Statement(wastrue) {
+    if (wastrue){
+        return "gisubizo";
+    }
+    return "esther";
+}
+console.log(Statement(true))
+//find if 12 is equal to 10
+function number(val){
+    if (val===10){
+        return "is equal";
+    }
+      return "is not equal";
+
+}
+console.log(number(10))
+//football counts
+function football(balcelona,realmadrid){
+    if(balcelona==realmadrid){
+        return "continue"
+    }else if(balcelona>realmadrid){
+        return"balcelona"
+    }else if(balcelona<realmadrid){
+        return"realmadrid"
+
+    }
+
+}
+console.log(football(3,3))
+//switch cases
+function ourhouse(val){
+    var newhouse="";
+    switch(val){
+        case 1:
+        return"etaje"
+        break;
+        case 2:
+        return"cadasteri"
+        break;
+        case 3:
+        return"konoshi"
+        break;
+    }
+    return newhouse;
+}
+console.log(ourhouse(2))
+//propert
+var mydog= {
+    "name":"pussy",
+    "leg":4,
+    "tail":1,
+    "relationship":["mee"]
+
+};
+var myname=mydog.name;
+var myleg=mydog.leg;
+
+    </script>
+</body>
+</html>

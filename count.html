@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Score Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .team {
+            margin: 20px 0;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        .team-name {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Basketball Score Counter</h1>
+        <div class="team" id="teamA">
+            <div class="team-name">Team A</div>
+            <div class="score" id="scoreA">0</div>
+            <button onclick="addPoints('A', 1)">+1 Point</button>
+            <button onclick="addPoints('A', 2)">+2 Points</button>
+            <button onclick="addPoints('A', 3)">+3 Points</button>
+        </div>
+        <div class="team" id="teamB">
+            <div class="team-name">Team B</div>
+            <div class="score" id="scoreB">0</div>
+            <button onclick="addPoints('B', 1)">+1 Point</button>
+            <button onclick="addPoints('B', 2)">+2 Points</button>
+            <button onclick="addPoints('B', 3)">+3 Points</button>
+        </div>
+        <button onclick="resetScores()" style="margin-top: 20px; background-color: #ff4d4d; color: white;">Reset Scores</button>
+    </div>
+
+    <script>
+        // Initialize scores for Team A and Team B
+        let scoreA = 0;
+        let scoreB = 0;
+
+        // Function to add points to a team's score
+        function addPoints(team, points) {
+            if (team === 'A') {
+                scoreA += points;
+                document.getElementById('scoreA').textContent = scoreA;
+            } else if (team === 'B') {
+                scoreB += points;
+                document.getElementById('scoreB').textContent = scoreB;
+            }
+        }
+
+        // Function to reset scores
+        function resetScores() {
+            scoreA = 0;
+            scoreB = 0;
+            document.getElementById('scoreA').textContent = scoreA;
+            document.getElementById('scoreB').textContent = scoreB;
+        }
+    </script>
+</body>
+</html>

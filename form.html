@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Attendance Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .attendees {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>L4SOD Attendance</h1>
+        <form id="attendanceForm">
+            <label for="attendeeName">Enter Attendee's Name:</label>
+            <input type="text" id="attendeeName" placeholder="Enter name" required>
+            <button type="submit">Add Attendee</button>
+        </form>
+
+        <div class="attendees">
+            <h2>Attendee List</h2>
+            <ul id="attendeeList"></ul>
+            <p>Total Attendees: <span id="totalCount">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Select DOM elements
+        const form = document.getElementById("attendanceForm");
+        const attendeeNameInput = document.getElementById("attendeeName");
+        const attendeeList = document.getElementById("attendeeList");
+        const totalCount = document.getElementById("totalCount");
+
+        // Array to store attendees
+        const attendees = [];
+
+        // Handle form submission
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            const name = attendeeNameInput.value.trim(); // Get input and remove extra spaces
+
+            if (name) {
+                attendees.push(name); // Add name to the array
+
+                // Update the attendee list
+                const listItem = document.createElement("li");
+                listItem.textContent = name;
+                attendeeList.appendChild(listItem);
+
+                // Update the total count
+                totalCount.textContent = attendees.length;
+
+                // Clear the input field
+                attendeeNameInput.value = "";
+            } else {
+                alert("Please enter a valid name.");
+            }
+        });
+    </script>
+</body>
+</html>
